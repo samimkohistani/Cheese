@@ -67,7 +67,6 @@ app.get("/cheese", async (req, res) => {
   }
 });
 
-// PEOPLE CREATE ROUTE
 app.post("/cheese", async (req, res) => {
   try {
     // send all people
@@ -78,10 +77,8 @@ app.post("/cheese", async (req, res) => {
   }
 });
 
-// PEOPLE DELETE ROUTE
 app.delete("/cheese/:id", async (req, res) => {
   try {
-    // send all people
     res.json(await Cheese.findByIdAndRemove(req.params.id));
   } catch (error) {
     //send error
@@ -89,10 +86,8 @@ app.delete("/cheese/:id", async (req, res) => {
   }
 });
 
-// PEOPLE UPDATE ROUTE
 app.put("/cheese/:id", async (req, res) => {
   try {
-    // send all people
     res.json(
       await Cheese.findByIdAndUpdate(req.params.id, req.body, { new: true })
     );
@@ -106,3 +101,5 @@ app.put("/cheese/:id", async (req, res) => {
 // LISTENER
 ////////////////////////////////
 app.listen(PORT, () => console.log(`listening on PORT ${PORT}`));
+
+//end
